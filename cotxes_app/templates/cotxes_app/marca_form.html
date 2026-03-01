@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulari</title>
+</head>
+<body>
+    <h1>{% if object %}Editar Marca{% else %}Afegir Nova Marca{% endif %}</h1>
+    
+    <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">Guardar dades</button>
+    </form>
+    
+    <br>
+    <a href="{% url 'marca_list' %}">⬅ Tornar a la llista</a>
+</body>
+</html>

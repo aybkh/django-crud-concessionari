@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Esborrar</title>
+</head>
+<body>
+    <h2>Estàs segur que vols eliminar la marca "{{ object.nom }}"?</h2>
+    <p style="color: red;">Atenció: També s'esborraran tots els models de cotxe associats a aquesta marca.</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sí, estic segur</button>
+    </form>
+    
+    <br>
+    <a href="{% url 'marca_list' %}">Cancel·lar i tornar</a>
+</body>
+</html>

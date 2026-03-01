@@ -1,0 +1,10 @@
+# Entorn virtual
+env/
+venv/
+
+# Base de dades
+db.sqlite3
+
+# Fitxers temporals de Python
+__pycache__/
+*.pyc

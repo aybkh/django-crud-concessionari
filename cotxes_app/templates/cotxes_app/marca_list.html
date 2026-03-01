@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Concessionari</title>
+</head>
+<body>
+    <h1>Llista de Marques i Models</h1>
+    <a href="{% url 'marca_create' %}" style="padding: 10px; background: blue; color: white; text-decoration: none;">+ Afegir Nova Marca</a>
+    <hr>
+
+    <ul>
+        {% for marca in marques %}
+            <li>
+                <h3>{{ marca.nom }} ({{ marca.pais }})</h3>
+                <p><strong>Models associats:</strong>
+                    <ul>
+                    {% for model in marca.models.all %}
+                        <li>{{ model.nom }} ({{ model.any_fabricacio }})</li>
+                    {% empty %}
+                        <li>Cap model registrat encara.</li>
+                    {% endfor %}
+                    </ul>
+                </p>
+                <a href="{% url 'marca_update' marca.pk %}">✏️ Editar Marca</a> | 
+                <a href="{% url 'marca_delete' marca.pk %}">🗑️ Esborrar Marca</a>
+            </li>
+            <hr>
+        {% empty %}
+            <p>No hi ha dades. Afegeix la teva primera marca!</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>
